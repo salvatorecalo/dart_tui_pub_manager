@@ -3,7 +3,7 @@ import 'package:dart_console/dart_console.dart';
 import 'plugins/index.dart';
 
 void main() async {
-  final console = Console();
+  final Console console = Console();
   String? query = '';
 
   while (true){

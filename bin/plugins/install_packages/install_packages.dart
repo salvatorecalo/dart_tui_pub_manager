@@ -2,8 +2,7 @@ import 'dart:io';
 import 'package:dart_console/dart_console.dart';
 import 'package:mason_logger/mason_logger.dart';
 
-Future<void> installPackages(Console console, String packageName) async{
-    final Logger logger = Logger();
+Future<void> installPackages(Logger logger, Console console, String packageName) async{
     final progress = logger.progress("Installing $packageName");
     final result = await Process.run("dart", ["pub", "add", packageName]);
     if (result.exitCode == 0){

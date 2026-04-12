@@ -1,13 +1,18 @@
 import 'package:dart_console/dart_console.dart';
 import '../search_pubs/search_pubs.dart';
 import '../install_packages/install_packages.dart';
+import 'package:mason_logger/mason_logger.dart';
+import '../uninstall_packages/uninstall_packages.dart';
+import '../../utils/index.dart';
 
 Future<void> explorePackages(Console console, String query) async {
+  final Logger logger = Logger();
   int currentPage = 1;
   int selectedIndex = 0;
 
   while (true){
     console.clearScreen();
+    final List<String> installedPackages = getAllInstalledPackages(logger);
     console.writeLine("🔍 Results for: '$query' | Page: $currentPage", TextAlignment.center);
     console.writeLine("--------------------------------------------------\n");
 
@@ -21,12 +26,22 @@ Future<void> explorePackages(Console console, String query) async {
     }
 
     for (int i = 0; i < packages.length; i++) {
+      if (installedPackages.any((pkg) => pkg == packages[i])){
+      if (i == selectedIndex) {
+        console.setForegroundColor(ConsoleColor.yellow);
+        console.writeLine("> [X] ${packages[i]}".padRight(console.windowWidth));
+        console.resetColorAttributes();
+      } else {
+      console.writeLine("[X] ${packages[i]}");
+      }
+      } else {
       if (i == selectedIndex) {
         console.setForegroundColor(ConsoleColor.yellow);
         console.writeLine("> ${packages[i]}".padRight(console.windowWidth));
         console.resetColorAttributes();
       } else {
-        console.writeLine("  ${packages[i]}");
+          console.writeLine("  ${packages[i]}");
+        }
       }
     }
     console.writeLine("\n[↑/↓] Naviga | [Enter] Installa | [→] Pagina Succ | [←] Pagina Prec | [Esc] Nuova Ricerca");
@@ -45,7 +60,9 @@ Future<void> explorePackages(Console console, String query) async {
     } else if (key.controlChar == ControlCharacter.escape) {
       return;
     } else if (key.controlChar == ControlCharacter.enter) {
-      await installPackages(console, packages[selectedIndex]);
+        await installPackages(logger, console, packages[selectedIndex]);
+    } else if (key.char.toLowerCase() == 'x'){
+        await uninstallPackages(logger, console, packages[selectedIndex]);
     }
   }
 }
