@@ -7,18 +7,18 @@ import 'dart:io';
 Future<void> manageInstalledPackages(Console console, Logger logger) async {
   List<String> installedPackages = getAllInstalledPackages(logger, Directory.current);
   if (installedPackages.isEmpty) {
-    console.writeLine("\nNon hai pacchetti installati.");
+    console.writeLine("\nYou don't have any installed packages.");
     console.readKey();
     return;
   }
   int selectedIndex = 0;
 
-  console.writeLine("\n[↑/↓] Naviga | [Enter] DISINSTALLA | [Esc] Torna al Menu");
+  console.writeLine("\n[↑/↓] Go up and down | [Enter] Uninstall | [Esc] Go back to menu");
   while (true) {
     installedPackages = getAllInstalledPackages(logger, Directory.current);
     console.clearScreen();
     console.writeLine("All your installed packages");
-    console.writeLine("Press X to uninstall");
+    console.writeLine("Press X to uninstall, [ESC] to go back to main menu");
     console.writeLine("---------------------------");
     for (int i = 0; i < installedPackages.length; i++) {
       if (i == selectedIndex) {
