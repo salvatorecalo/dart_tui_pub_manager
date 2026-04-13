@@ -93,20 +93,6 @@
             </list>
           </value>
         </entry>
-        <entry key="dio">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/dio-5.9.2/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="dio_web_adapter">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.2/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="ffi">
           <value>
             <list>
@@ -424,8 +410,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/coverage-1.15.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/crypto-3.0.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dart_console-4.1.4/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio-5.9.2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/ffi-2.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-7.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/frontend_server_client-4.0.0/lib" />

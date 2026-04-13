@@ -5,8 +5,7 @@ import 'package:mason_logger/mason_logger.dart';
 import '../uninstall_packages/uninstall_packages.dart';
 import '../../utils/index.dart';
 
-Future<void> explorePackages(Console console, String query) async {
-  final Logger logger = Logger();
+Future<void> explorePackages(Console console,Logger logger, String query) async {
   int currentPage = 1;
   int selectedIndex = 0;
 
