@@ -5,7 +5,7 @@ import '../uninstall_packages/uninstall_packages.dart';
 import 'dart:io';
 
 Future<void> manageInstalledPackages(Console console, Logger logger) async {
-  final List<String> installedPackages = getAllInstalledPackages(logger, Directory.current);
+  List<String> installedPackages = getAllInstalledPackages(logger, Directory.current);
   if (installedPackages.isEmpty) {
     console.writeLine("\nNon hai pacchetti installati.");
     console.readKey();
@@ -15,6 +15,7 @@ Future<void> manageInstalledPackages(Console console, Logger logger) async {
 
   console.writeLine("\n[↑/↓] Naviga | [Enter] DISINSTALLA | [Esc] Torna al Menu");
   while (true) {
+    installedPackages = getAllInstalledPackages(logger, Directory.current);
     console.clearScreen();
     console.writeLine("All your installed packages");
     console.writeLine("Press X to uninstall");
