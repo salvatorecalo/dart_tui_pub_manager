@@ -2,8 +2,7 @@ import 'dart:io';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:yaml/yaml.dart';
 
-List<String> getAllInstalledPackages(Logger logger){
-  final Directory directory = Directory.current;
+List<String> getAllInstalledPackages(Logger logger, Directory directory){
   final File file = File('${directory.path}/pubspec.yaml');
   if (!file.existsSync()) {
     logger.err("Errore: pubspec.yaml not found in ${directory.path}. Please run this tool in the root of your project!");

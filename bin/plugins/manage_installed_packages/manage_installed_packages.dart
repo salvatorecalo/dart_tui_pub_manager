@@ -2,9 +2,10 @@ import '../../utils/index.dart';
 import 'package:dart_console/dart_console.dart';
 import 'package:mason_logger/mason_logger.dart';
 import '../uninstall_packages/uninstall_packages.dart';
+import 'dart:io';
 
 Future<void> manageInstalledPackages(Console console, Logger logger) async {
-  final List<String> installedPackages = getAllInstalledPackages(logger);
+  final List<String> installedPackages = getAllInstalledPackages(logger, Directory.current);
   if (installedPackages.isEmpty) {
     console.writeLine("\nNon hai pacchetti installati.");
     console.readKey();

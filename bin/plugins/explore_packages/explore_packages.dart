@@ -4,6 +4,7 @@ import '../install_packages/install_packages.dart';
 import 'package:mason_logger/mason_logger.dart';
 import '../uninstall_packages/uninstall_packages.dart';
 import '../../utils/index.dart';
+import 'dart:io';
 
 Future<void> explorePackages(Console console,Logger logger, String query) async {
   int currentPage = 1;
@@ -11,15 +12,15 @@ Future<void> explorePackages(Console console,Logger logger, String query) async 
 
   while (true){
     console.clearScreen();
-    final List<String> installedPackages = getAllInstalledPackages(logger);
+    final List<String> installedPackages = getAllInstalledPackages(logger, Directory.current);
     console.writeLine("🔍 Results for: '$query' | Page: $currentPage", TextAlignment.center);
     console.writeLine("--------------------------------------------------\n");
 
     final List<String> packages = await searchPubs(query, currentPage);
 
     if (packages.isEmpty){
-      console.writeLine("❌ Nessun pacchetto trovato.");
-      console.writeLine("Premi un tasto per tornare alla ricerca...");
+      console.writeLine("❌ No packages found.");
+      console.writeLine("Press a key to go back...");
       console.readKey();
       return;
     }
@@ -43,7 +44,7 @@ Future<void> explorePackages(Console console,Logger logger, String query) async 
         }
       }
     }
-    console.writeLine("\n[↑/↓] Naviga | [Enter] Installa | [→] Pagina Succ | [←] Pagina Prec | [Esc] Nuova Ricerca");
+    console.writeLine("\n[↑/↓] Go up and down | [Enter] Install | [→] Next page | [←] Previous page | [Esc] New search");
     final Key key = console.readKey();
 
     if (key.controlChar == ControlCharacter.arrowDown) {

@@ -1,15 +1,12 @@
-name: dart_pub_finder
-description: A sample command-line application with basic argument parsing.
-version: 0.0.1
-# repository: https://github.com/my_org/my_repo
-
+name: dart_tui_pub_manager
+description: A terminal user interface that allow you to manage all your dart/flutter pakcages directly in your terminal without leaving your ide.
+version: 1.0.0
+repository: https://github.com/salvatorecalo/dart_tui_pub_manager
 environment:
   sdk: ^3.10.0
 
-# Add regular dependencies here.
 dependencies:
   dart_console: ^4.1.4
-  http: ^1.6.0
   mason_logger: ^0.3.5
   yaml: ^3.1.3
 dev_dependencies:

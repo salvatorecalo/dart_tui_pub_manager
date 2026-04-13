@@ -1,3 +1,4 @@
-## 1.0.0
+## 1.0.1
 
-- Initial version.
+- Add possibility to search package on pub.dev and install them
+- Add possibility to see installed package and choose to uninstall them
